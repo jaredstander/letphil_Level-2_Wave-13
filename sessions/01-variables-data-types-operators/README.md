@@ -252,11 +252,17 @@ Don't run it. Write down the value of `a` and `b` after **each** line:
 
 ```js
 let a = 5;
+a: 5
 let b = a;
+b: 5
 
 a = 10;
+a: 10
+b: 5
 b = b + 1;
+b: 6
 a = a + b;
+a: 16
 ```
 
 Line 5 is where people go wrong. Bring what you wrote — we'll compare in class.
