@@ -248,8 +248,8 @@ if (isDone) {
 }
 ```
 
-1. What is `label` at the end?
-2. **Which branch can never run, no matter what values you use?** Why?
+1. What is `label` at the end? // Normal.
+2. **Which branch can never run, no matter what values you use?** Why? // I thin kthat the priority === 1 can never run. If the priority is 1, the <= 2 will get it. But the else would cover values that are over 2 assuming it's not a blank string.
 
 Bring both answers to class.
 
