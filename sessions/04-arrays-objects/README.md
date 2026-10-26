@@ -348,10 +348,19 @@ Write the expression that gives you:
 3. The title of her second task
 4. Whether her first task is done
 
+// 1: user.name;
+// 2: user.tasks.length;
+// 3: user.tasks[1].title;
+// 4: user.tasks.[0].isDone;
+
 Then answer:
 
 5. What does `user.tasks[2]` give you?
 6. What happens with `user.tasks[2].title`? Why is that different from question 5?
+
+// 5: undefined
+// 6: undefined => wrong, real answer is "Uncaught TypeError: Cannot read properties of undefined (reading 'title')"
+// 6: Question 5 is trying to read an undefined index, but trying to read a property from an undefined index is more problematic because it's like trying to perform an operation on something that doesn't exist instead of just looking for something that doesn't exist.
 
 ### 2. Submit your prediction
 
@@ -370,8 +379,8 @@ let doneCount = 0;
 
 complete(task, doneCount);
 
-console.log(task.isDone);
-console.log(doneCount);
+console.log(task.isDone); // true
+console.log(doneCount); // 1
 ```
 
 In the form, write:
@@ -379,3 +388,4 @@ In the form, write:
 > I think it logs ___ and ___, because ___
 
 Your Session 3 trace is part of the answer. So is section 6.
+

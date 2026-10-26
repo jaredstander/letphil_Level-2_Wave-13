@@ -270,6 +270,7 @@ a = double(b) + a;
 ```
 
 Then answer: **after line 6, did calling `double(a)` change `a`?** Why or why not?
+// It did not change the value of a because only an assignment statement (single equals =) can change a. When a is passed as an argument into a function, the value is copied into the function but unless that function contains an assignment, the function should not alter any of its arguments.
 
 ### 2. Submit your prediction
 
@@ -291,6 +292,10 @@ console.log(getLabel(1));
 console.log(getLabel(2));
 console.log(getLabel(3));
 ```
+// Urgent
+// Normal
+// undefined
+// undefined
 
 There are more lines of output than you might expect. Write **all** of them in the form, in order:
 
