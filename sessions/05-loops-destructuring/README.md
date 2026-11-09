@@ -317,6 +317,12 @@ for (const task of tasks) {
 
 Columns: iteration, `task.title`, `count` after, `last` after. What are `count` and `last` at the end?
 
+| Iteration   | `task.title` | `count` after | `last` after  |
+| Before Loop |      -       |        0      |      ""       |
+|      1      |      A       |        0      |      ""       |
+|      2      |      B       |        1      |      "B"      |
+|      3      |      C       |        2      |      "C"      |
+
 ### 2. Submit your prediction
 
 Submit it using **this session's form link** from your mentor. Nobody else sees your answer — and once class starts, the form closes and you can't change it. So commit to what you actually think.
@@ -350,3 +356,29 @@ In the form, answer all three:
 > 3. The author wanted ___, and the fix is ___
 
 There's more than one bug. Finding one isn't enough to get the output right.
+
+> 1. 0
+> 2. 1
+> 3. 2, and the fix is: Count and return need to be outside of the loop.
+
+Fixed Version:
+
+```js
+function countUrgent(tasks) {
+  let count = 0;
+  for (const task of tasks) {
+    if (task.priority === 1) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
+const tasks = [
+  { title: "A", priority: 2 },
+  { title: "B", priority: 1 },
+  { title: "C", priority: 1 }
+];
+
+console.log(countUrgent(tasks));
+```

@@ -1,0 +1,162 @@
+/* Expense Tracker — starter styles
+   ------------------------------------------------------------------
+   Rename this file to style.css and put it next to your index.html.
+
+   It handles the page, the form and the buttons so you can spend
+   your time on the JavaScript. One rule is left for you to write —
+   look for YOUR JOB near the bottom.
+
+   Change anything you like. The colours are all in one place.        */
+
+:root {
+  --ink:     #0e1a2b;   /* page background       */
+  --surface: #15263c;   /* raised panels         */
+  --line:    #23374f;   /* borders and dividers  */
+  --paper:   #e7eef6;   /* main text             */
+  --muted:   #8aa2bb;   /* secondary text        */
+  --accent:  #37d3c4;   /* the one bright colour */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+  max-width: 34rem;
+
+  background-color: var(--ink);
+  color: var(--paper);
+
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+/* The summary line — the one sentence built from your data. */
+#summary {
+  margin: 0 0 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+/* ---------- form ---------- */
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2rem;
+}
+
+input,
+select {
+  flex: 1 1 8rem;
+  padding: 0.6rem 0.75rem;
+  background-color: var(--surface);
+  color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- buttons ---------- */
+
+button {
+  padding: 0.6rem 0.9rem;
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+form button {
+  background-color: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- the list ---------- */
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  background-color: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+}
+
+li button {
+  margin-left: auto;      /* push the buttons to the right */
+  padding: 0.35rem 0.6rem;
+}
+
+li button + button {
+  margin-left: 0;         /* the second button sits beside the first */
+}
+
+/* ---------- YOUR JOB ---------- */
+/* Your JavaScript adds a class to paid expenses. Decide what paid
+   looks like, and write it here. Faded? A different left edge?
+   Something else? There's no single right answer — but the rule
+   belongs in CSS, not in your JavaScript.
+
+   One thing worth knowing: don't put text-decoration here. A strike
+   set on the whole row gets drawn across its buttons too, and the
+   buttons can't cancel it.                                          */
+
+.paid {
+  /* your styles */
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 30rem) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  input,
+  select {
+    flex-basis: 100%;
+  }
+}
