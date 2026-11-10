@@ -4,6 +4,7 @@
 
 // This is the main homework. Loop through every expense, `getTotal`, `getUnpaidTotal`, destructuring at least once — see the M1 brief.
 
+// I have copies the test data and functions from my M1 app.js into this file just to submit
 const expenses = [
     { label: "Cell Phone", amount: 15, category: "utility", paid: true },
     { label: "Internet", amount: 80, category: "utility", paid: false },
@@ -15,8 +16,9 @@ const expenses = [
 function getTotal(expenses) {
     let total = 0;
 
-    for(const expense of expenses) {
-        total += Number(expense.amount);
+    for(expense of expenses) {
+        const { amount } = expense;
+        total += amount;
     }
 
     return total;
@@ -25,9 +27,10 @@ function getTotal(expenses) {
 function getUnpaidTotal(expenses) {
     let unpaidTotal = 0;
 
-    for(const expense of expenses) {
-        if(!expense.paid) {
-            unpaidTotal += Number(expense.amount);
+    for(expense of expenses) {
+        const { amount, paid } = expense;
+        if(!paid) {
+            unpaidTotal += amount;
         }
     }
 
