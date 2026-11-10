@@ -13,20 +13,27 @@
 // Example of the shape, from the brief:
 //   { label: "Internet", amount: 45, category: "home", isPaid: false }
 
-// ---------- data ----------
 // Stage 1 — start now, after Session 4
+    // - [ ] **Design check** at the top of your file, as a comment: what shape is an expense, in plain English — and one example expense
+    // - [ ] An array of **at least 5 expenses**. Each needs at least:
+    //   - a label (text)
+    //   - an amount (a **number** — not `"45"`)
+    //   - a category (text)
+    //   - whether it's paid (a boolean)
+    // - [ ] Mix it up: some paid, some unpaid, at least 2 categories, at least one over $100
+    // - [ ] `describeExpense(expense)` — **returns** a sentence about one expense, like `Internet — $45 (home, unpaid)`
+    // - [ ] `getPriority(expense)` — **returns** a label using `if` / `else if`: `"Paid"` for paid expenses, `"Pay first"` for unpaid ones over $100, `"Unpaid"` for the rest. **Add a comment explaining why your checks are in that order**
+    // - [ ] Output: log `describeExpense` and `getPriority` for a few expenses, by index — `expenses[0]`, `expenses[1]`…
 
-// - [ ] **Design check** at the top of your file, as a comment: what shape is an expense, in plain English — and one example expense
-// - [ ] An array of **at least 5 expenses**. Each needs at least:
-//   - a label (text)
-//   - an amount (a **number** — not `"45"`)
-//   - a category (text)
-//   - whether it's paid (a boolean)
-// - [ ] Mix it up: some paid, some unpaid, at least 2 categories, at least one over $100
-// - [ ] `describeExpense(expense)` — **returns** a sentence about one expense, like `Internet — $45 (home, unpaid)`
-// - [ ] `getPriority(expense)` — **returns** a label using `if` / `else if`: `"Paid"` for paid expenses, `"Pay first"` for unpaid ones over $100, `"Unpaid"` for the rest. **Add a comment explaining why your checks are in that order**
-// - [ ] Output: log `describeExpense` and `getPriority` for a few expenses, by index — `expenses[0]`, `expenses[1]`…
+// ### Stage 2 — after Session 5 (loops)
+    // - [ ] Replace the by-index lines with a **loop** that describes every expense
+    // - [ ] `getTotal(expenses)` — **returns** the total of all amounts
+    // - [ ] `getUnpaidTotal(expenses)` — **returns** the total still to pay
+    // - [ ] Use **destructuring** at least once
 
+// ---------- data ----------
+
+// Stage 1
 const expenses = [
     { label: "Cell Phone", amount: 15, category: "utility", paid: true },
     { label: "Internet", amount: 80, category: "utility", paid: false },
@@ -37,10 +44,12 @@ const expenses = [
 
 // ---------- functions ----------
 
+// Stage 1
 function describeExpense(expense) {
-    return `${expense.label} — $${expense.amount} (${expense.category}, ${expense.paid})`;
+    return `${expense.label} — $${expense.amount} (${expense.category}, ${getPriority(expense)})`;
 }
 
+// Stage 1
 function getPriority(expense) {
     if(expense.amount > 100 && !expense.paid) {
         return "Pay first";
@@ -51,24 +60,52 @@ function getPriority(expense) {
     }
 }
 
+// Stage 2
+function getTotal(expenses) {
+    let total = 0;
+
+    for(expense of expenses) {
+        const { amount } = expense;
+        total += amount;
+    }
+
+    return total;
+}
+
+// Stage 2
+function getUnpaidTotal(expenses) {
+    let unpaidTotal = 0;
+
+    for(expense of expenses) {
+        const { amount, paid } = expense;
+        if(!paid) {
+            unpaidTotal += amount;
+        }
+    }
+
+    return unpaidTotal;
+}
+
 // ---------- output ----------
 
-console.log(describeExpense(expenses[0]));
-console.log(getPriority(expenses[0]));
-console.log("-----");
+// Stage 1
+// console.log(describeExpense(expenses[0]));
+// console.log(getPriority(expenses[0]));
+// console.log("-----");
+// console.log(describeExpense(expenses[1]));
+// console.log(getPriority(expenses[1]));
+// console.log("-----");
+// console.log(describeExpense(expenses[2]));
+// console.log(getPriority(expenses[2]));
+// console.log("-----");
+// console.log(describeExpense(expenses[3]));
+// console.log(getPriority(expenses[3]));
+// console.log("-----");
+// console.log(describeExpense(expenses[4]));
+// console.log(getPriority(expenses[4]));
+// console.log("-----");
 
-console.log(describeExpense(expenses[1]));
-console.log(getPriority(expenses[1]));
-console.log("-----");
-
-console.log(describeExpense(expenses[2]));
-console.log(getPriority(expenses[2]));
-console.log("-----");
-
-console.log(describeExpense(expenses[3]));
-console.log(getPriority(expenses[3]));
-console.log("-----");
-
-console.log(describeExpense(expenses[4]));
-console.log(getPriority(expenses[4]));
-console.log("-----");
+// Stage 2
+for(expense of expenses) {
+    console.log(describeExpense(expense));
+}

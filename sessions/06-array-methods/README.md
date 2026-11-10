@@ -332,9 +332,9 @@ const titles = tasks.map((task) => {
 
 const open = tasks.filter((task) => !task.isDone);
 
-console.log(titles);
-console.log(open.length);
-console.log(tasks.length);
+console.log(titles); // ["Buy milk", "Call bank", "Pay rent"]
+console.log(open.length); // 2
+console.log(tasks.length); // 3
 ```
 
 In the form, write:

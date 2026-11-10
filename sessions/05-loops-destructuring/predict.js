@@ -86,3 +86,53 @@ console.log(countUrgent(tasks));
 // > 1. It logs 0
 // > 2. The loop body runs 1 time(s)
 // > 3. The author wanted 2, and the fix is move count declaration and return out of the loop.
+
+// for (let i = 0; i <= 2; i++) {
+//   console.log(i);
+// }
+
+const fruits = ["Kiwi", "Mango", "Dragon Fruit"];
+
+// for (const fruit of fruits[0]) {
+//   console.log(fruit);
+// }
+
+// let index = 2;
+// for (let i = 0; i < 1; index++) {
+//   console.log(fruits[index]);
+// }
+
+// const pay = 100;
+
+// for (let week = 2; week <= 12; week += 2) {
+//   const payment = pay * 2;
+
+//   console.log(`Week ${week}: Pay employee $${payment}`);
+// }
+
+// When should we use a for loop?
+// When you need the index
+// When you have control over the count
+
+//When should we use a for of loop?
+// When you only need the values from an array
+// When you want to show all elements/items in a array.
+
+const tasksTwo = [
+  { title: "A", isDone: true },
+  { title: "B", isDone: false },
+  { title: "C", isDone: false },
+];
+
+let count = 0;
+let last = "";
+
+for (const task of tasksTwo) {
+  if (!task.isDone) {
+    count = count + 1;
+    last = task.title;
+  }
+}
+
+console.log("count:", count); // 2
+console.log("last:", last); // C
