@@ -16,7 +16,7 @@ const expenses = [
 function getTotal(expenses) {
     let total = 0;
 
-    for(expense of expenses) {
+    for(const expense of expenses) {
         const { amount } = expense;
         total += amount;
     }
@@ -27,7 +27,7 @@ function getTotal(expenses) {
 function getUnpaidTotal(expenses) {
     let unpaidTotal = 0;
 
-    for(expense of expenses) {
+    for(const expense of expenses) {
         const { amount, paid } = expense;
         if(!paid) {
             unpaidTotal += amount;
@@ -39,6 +39,8 @@ function getUnpaidTotal(expenses) {
 
 console.log("Total:", `$${getTotal(expenses).toFixed(2)}`);
 console.log("Unpaid Total:", `$${getUnpaidTotal(expenses).toFixed(2)}`);
+// Addendum; the original versions of my for...of loops did not include the "const" keyword for declaring the single instance of items in the loop.
+// That is critical for scope but also for preventing any redeclarations of that item within the loop so that the items in the loop cannot be edited while it's still iterating through the items.
 
 
 // 2. Parsons — count

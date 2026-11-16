@@ -51,3 +51,23 @@ if (found) { // B
 } else { // D
     console.log("Not found"); // E
 } // F
+
+
+
+// const users = [
+//   { name: "Ana", age: 22, role: "admin", isActive: true },
+//   { name: "Luis", age: 15, role: "user", isActive: false },
+//   { name: "Sam", age: 31, role: "user", isActive: true },
+// ];
+
+// const names = users.____((user) => user.name); // ["Ana","Luis","Sam"]
+// map
+
+// const adultCount = users.____((user) => user.age >= 18).length; // 2
+// filter
+
+// const admin = users.____((user) => user.role === "admin"); // the Ana object
+// find
+
+// const activeCount = users.filter((user) => user.isActive).____; // 2
+// length
