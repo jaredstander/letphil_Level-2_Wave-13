@@ -9,7 +9,14 @@
 // Design check — answer these in a comment before writing any code.
 //   1. What shape is an expense? Write one example.
 //   2. What do you want to find out about your expenses?
-//
+
+/*
+    Design check answers:
+        1. An expense is an object with various properties, and all tasks are stored within an array of objects.
+            ex; task = { name: "foo", amount: 100, recurring: false, paid: false, category: "entertainment" }
+        2. 
+*/
+
 // Example of the shape, from the brief:
 //   { label: "Internet", amount: 45, category: "home", isPaid: false }
 
@@ -31,6 +38,26 @@
     // - [ ] `getUnpaidTotal(expenses)` — **returns** the total still to pay
     // - [ ] Use **destructuring** at least once
 
+/*
+    Feedback after Stage 1:
+
+    • Stage 1 (design check): the comment at the top still has the starter questions. Add your own answer: the shape of an expense in plain English, plus one example.
+    I added an answer to this question in the comment starting line 13.
+    [DONE]
+
+    • Stage 1 (getPriority): it returns the right labels, but the brief asks for a comment explaining why your checks are in that order.
+    I added a comment to explain the order I chose on line 81.
+    [DONE]
+
+    • Stage 2 (loops): all three loops use for(expense of expenses) with nothing in front of expense. What keyword belongs there?
+    [DONE]
+    This was similar to the issue I had with Session 5 Loops and Destructuring. I am missing the "const" keyboard that comes before X in for(X of Y). This is needed to properly scope the variable X that you're using as the individual items in the collection Y. This has been updated in the code below.
+
+    • Stage 2 (output): getTotal and getUnpaidTotal are written but never used in the output section, so the totals never show.
+    I added output lines on lines 141 and 142 to show the total and unpaid total after the individual task description output.
+    [DONE]
+*/
+
 // ---------- data ----------
 
 // Stage 1
@@ -51,6 +78,7 @@ function describeExpense(expense) {
 
 // Stage 1
 function getPriority(expense) {
+    // Why this order: You want to order high priority items first. If you looked for just unpaid items first, you wouldn't be able to check the amount, which is the other condition that determines high priority. Then, after high priority was checked for, there is only paid and unpaid. I checked for paid because I like checking for truthy values instead of using ! operators whenever possible. And then the last item is just an else because if it's not high priority but isn't paid, then it's a normal unpaid item.
     if(expense.amount > 100 && !expense.paid) {
         return "Pay first";
     } else if(expense.paid) {
@@ -64,7 +92,7 @@ function getPriority(expense) {
 function getTotal(expenses) {
     let total = 0;
 
-    for(expense of expenses) {
+    for(const expense of expenses) {
         const { amount } = expense;
         total += amount;
     }
@@ -76,7 +104,7 @@ function getTotal(expenses) {
 function getUnpaidTotal(expenses) {
     let unpaidTotal = 0;
 
-    for(expense of expenses) {
+    for(const expense of expenses) {
         const { amount, paid } = expense;
         if(!paid) {
             unpaidTotal += amount;
@@ -106,6 +134,9 @@ function getUnpaidTotal(expenses) {
 // console.log("-----");
 
 // Stage 2
-for(expense of expenses) {
+for(const expense of expenses) {
     console.log(describeExpense(expense));
 }
+
+console.log("Total:", getTotal(expenses));
+console.log("Unpaid:", getUnpaidTotal(expenses));

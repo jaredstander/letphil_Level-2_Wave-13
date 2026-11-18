@@ -350,6 +350,7 @@ c.textContent = "Pay rent";
 ```
 
 How many `<li>` elements are on the page? In what order? Which one has a class?
+// 2; B and then A in that order. A has the class "done."
 
 ### 2. Submit your prediction
 
@@ -388,3 +389,6 @@ In the form, write:
 > I think the page shows ___, because ___
 
 Think about what `render` actually does, and when.
+
+// The page shows one list item, "Buy Milk" and it is unchecked (undone.)
+// This is because appending the second list item "Call bank" AFTER render is called, so it exists in the data but is never translated to the DOM. It's the same for the line after is that changes tasks[0].isDone to true. Since the object is updated after it's been rendered, it exists in the data only, not in the DOM.
